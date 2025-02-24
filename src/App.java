@@ -1,4 +1,5 @@
 import javax.swing.*;
+import game.FlappyBird;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -17,5 +18,9 @@ public class App {
         frame.pack(); //Makes the window 360x640 without including the title bar
         flappyBird.requestFocus();
         frame.setVisible(true);
+    }
+
+    public static void printTest() {
+        System.out.print("hello world");
     }
 }
