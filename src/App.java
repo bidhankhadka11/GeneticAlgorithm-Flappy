@@ -19,8 +19,4 @@ public class App {
         flappyBird.requestFocus();
         frame.setVisible(true);
     }
-
-    public static void printTest() {
-        System.out.print("hello world");
-    }
 }

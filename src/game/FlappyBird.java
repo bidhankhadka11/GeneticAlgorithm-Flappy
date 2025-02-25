@@ -1,4 +1,5 @@
 package game;
+import algorithm.AIBird;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,9 +61,12 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
 
     //Game Logic
     Bird bird; 
-    int velocityX = -4;
-    int velcotiyY = -13;
+    int velocityX = -4; //const
+    int velcotiyY = -13;  //const
     int gravity = 1;
+
+    //AI Bird Logic
+    AIBird aiBird;
 
     ArrayList<Pipe> pipes;
 
@@ -88,6 +92,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
         
         //Bird
         bird = new Bird(flappyBird);
+        aiBird = new AIBird(this);
 
         pipes = new ArrayList<Pipe>();
         //Place Pipes Timer
@@ -161,7 +166,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
             }
 
             if(collison(bird, pipe)){
-                gameOver = true;
+               // gameOver = true;
             }
         }
 
@@ -185,6 +190,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener{
     public void actionPerformed(ActionEvent e) {
         move();
         repaint();
+        aiBird.AIjump(bird.y);
         if(gameOver) {
             placePipesTimer.stop();
             gameLoop.stop();
